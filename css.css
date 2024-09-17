@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    /* Gambar Latar Belakang dari file lokal */
+    background-image: url('a.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 182, 185, 0.85); 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff6f69;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #ff6f69;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff847c;
+}
+
+#hiddenMessage {
+    font-size: 1.5em;
+    color: #6a0572;
+    margin-top: 20px;
+}
+
+.photo {
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animasi Love di seluruh layar */
+#loveContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden; /* Pastikan love yang keluar layar tidak bisa di-scroll */
+}
+
+.love {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    transform: rotate(45deg);
+    animation: float 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+.love::before,
+.love::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.love::before {
+    top: -25px;
+    left: 0;
+}
+
+.love::after {
+    left: 25px;
+    top: 0;
+}
+
+/* Animasi love dari titik acak di layar */
+@keyframes float {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(45deg);
+    }
+    100% {
+        transform: translate(calc(100vw - 50px), calc(100vh - 50px)) rotate(45deg); /* Bergerak ke sudut */
+        opacity: 0;
+    }
+}
